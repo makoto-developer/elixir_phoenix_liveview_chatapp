@@ -1,10 +1,8 @@
 <h1>Rooms</h1>
 <div>
-  counter: {@counter}
-  <button phx-click="increase_counter">+</button>
-  <button phx-click="decrease_counter">-</button>
+  <ul>
+    <%= for room <- @room_list do %>
+      <li><%= room %></li>
+    <% end %>
+  </ul>
 </div>
-<div>
-  room name: {@room_name}
-</div>
-<.link href={~p"/rooms/new"}>Create New room</.link>
