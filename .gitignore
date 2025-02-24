@@ -35,3 +35,9 @@ chat_app-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# env
+.env*
+!.env.example
+
+# phoenix metadata
+*.iml
