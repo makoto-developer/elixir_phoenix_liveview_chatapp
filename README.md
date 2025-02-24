@@ -27,7 +27,8 @@ cd elixir_phoenix_liveview_chatapp
 mix deps.get
 source .env
 mix ecto.create
-mix phx.gen.schema Room rooms name:string category:string type:string visibility:string creator_name:string
-mix phx.gen.schema Message messages room_id:references:rooms user_name:string body:string
-mix ecto.migrate
+mix phx.gen.schema ChatApp.Chat room_categories category name:string parent_id:references:room_categories
+mix phx.gen.schema ChatApp.Chat users user name:string email:string ip_address:string
+mix phx.gen.schema ChatApp.Chat rooms room name:string category:references:room_categories visibility:boolean creator_name:string
+mix phx.gen.schema ChatApp.Chat messages message room_id:references:rooms user_name:string body:text
 ```
