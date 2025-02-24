@@ -1,0 +1,4 @@
+data_admin
+data_psql
+.env*
+!.env.example
