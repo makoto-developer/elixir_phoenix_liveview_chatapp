@@ -1,5 +1,18 @@
 <h1>Rooms</h1>
 <div>
+    <h2>新しいルームを作成する</h2>
+    <form phx-submit="create_room">
+        <label for="room_name">Room Name:</label>
+        <input type="text" name="room[name]" id="room_name" value={@changeset.name} />
+        <button type="submit">作成</button>
+
+        <%= if @changeset.action do %>
+        <div class="error">Please fix the errors and try again.</div>
+        <% end %>
+    </form>
+</div>
+<div>
+    <h2>ルームリスト</h2>
   <ul>
     <%= for room <- @room_list do %>
       <li><%= room %></li>

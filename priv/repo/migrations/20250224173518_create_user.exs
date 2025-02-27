@@ -1,9 +1,8 @@
-defmodule ChatApp.Repo.Migrations.CreateUsers do
+defmodule ChatApp.Repo.Migrations.CreateUser do
   use Ecto.Migration
 
   def change do
-    create table(:users) do
-      add :user, :string
+    create table(:user) do
       add :name, :string
       add :email, :string
       add :ip_address, :string

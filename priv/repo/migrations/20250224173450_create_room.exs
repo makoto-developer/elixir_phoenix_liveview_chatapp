@@ -1,17 +1,16 @@
-defmodule ChatApp.Repo.Migrations.CreateRooms do
+defmodule ChatApp.Repo.Migrations.CreateRoom do
   use Ecto.Migration
 
   def change do
-    create table(:rooms) do
-      add :room, :string
+    create table(:room) do
       add :name, :string
       add :visibility, :boolean, default: false, null: false
       add :creator_name, :string
-      add :category, references(:room_categories, on_delete: :nothing)
+      add :category, :integer
 
       timestamps(type: :utc_datetime)
     end
 
-    create index(:rooms, [:category])
+    create index(:room, [:category])
   end
 end
