@@ -1,0 +1,22 @@
+<h1 class="text-5xl font-extrabold dark:text-white">Rooms</h1>
+<div>
+    <h2 class="text-xl font-extrabold dark:text-white">ルームを作成する</h2>
+    <form phx-submit="create_room" class="mx-auto">
+        <div class="flex justify-start items-center gap-2">
+            <input type="text" id="email" name="room[name]"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="新しいルーム名" value="" required />
+            <button type="submit" class="sm:ml-3 p-2 whitespace-nowrap focus:outline-none focus:ring-blue-300 rounded-lg text-white dark:bg-blue-600 bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto w-full">作成</button>
+        </div>
+        <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
+            <%= if @already_exist do %>すでに登録されています<% end %>
+            <%= if @changeset.action do %>エラーが発生しました。管理者に連絡してください。<% end %>
+        </p>
+    </form>
+</div>
+<div>
+    <h2 class="text-xl font-extrabold dark:text-white">ルーム一覧</h2>
+    <ul class="grid grid-cols-4 gap-4">
+        <%= for room <- @room_list do %>
+        <li><%= room %></li>
+        <% end %>
+    </ul>
+</div>
