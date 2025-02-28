@@ -16,7 +16,7 @@
     <h2 class="text-xl font-extrabold dark:text-white">ルーム一覧</h2>
     <ul class="grid grid-cols-4 gap-4">
         <%= for room <- @room_list do %>
-        <li><%= room %></li>
+        <li><.link href={~p"/rooms/#{room}"}><%= room %></.link></li>
         <% end %>
     </ul>
 </div>
