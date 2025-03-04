@@ -32,3 +32,14 @@ mix phx.gen.context Chat Rooms room name:string category:references:RoomCategori
 mix phx.gen.context Chat Users user name:string email:string ip_address:string
 mix phx.gen.context Chat Messages message room_id:references:rooms user_name:string body:text
 ```
+
+## TODO
+
+- [ ] アカウントを作る
+- [ ] 短い単語の時は、横幅を短く表示する(現在は2/3で固定で表示。なんかダサい)
+- [ ] パンくずリストを表示
+- [ ] メッセージを永続化
+- [ ] メンション機能
+- [ ] アクティブなアカウントか分かるようにする
+- [ ] ユーザの詳細ページを作る
+- [ ] 負荷テスト
