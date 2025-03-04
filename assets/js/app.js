@@ -42,3 +42,21 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+// チャット機能
+let socket = new Phoenix.Socket("/socket", {params: {user_id: "user1"}})
+socket.connect()
+
+let channel = socket.channel("chat:lobby", {})
+channel.join()
+    .receive("ok", resp => console.log("Joined chat successfully", resp))
+    .receive("error", resp => console.log("Unable to join", resp))
+
+// メッセージを受信
+channel.on("new_message", payload => {
+  console.log("New message:", payload.message)
+})
+
+// メッセージ送信
+function sendMessage(userId, message) {
+  channel.push("new_message", {user_id: userId, message: message})
+}

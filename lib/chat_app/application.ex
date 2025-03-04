@@ -16,6 +16,7 @@ defmodule ChatApp.Application do
       {Finch, name: ChatApp.Finch},
       # Start a worker by calling: ChatApp.Worker.start_link(arg)
       # {ChatApp.Worker, arg},
+      {ChatServer, []},
       # Start to serve requests, typically the last entry
       ChatAppWeb.Endpoint
     ]

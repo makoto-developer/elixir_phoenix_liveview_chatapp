@@ -22,5 +22,19 @@
             <div class="mt-2"><%= message["content"] %></div>
         </div>
     </div>
+
     <% end %>
+</div>
+
+
+<!-- メッセージ送信フォーム -->
+<div class="mt-4">
+    <form phx-submit="send_message">
+        <input type="text" name="message" placeholder="メッセージを入力..."
+               class="w-full p-2 border rounded-lg" value={@new_message} />
+        <button type="submit"
+                class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg shadow">
+            送信
+        </button>
+    </form>
 </div>
