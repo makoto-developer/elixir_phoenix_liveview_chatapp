@@ -1,0 +1,26 @@
+<h1 class="text-5xl font-extrabold dark:text-white">Chat - <%= @room_name %></h1>
+<div>
+    <p>おしゃべりしましょう</p>
+</div>
+<div>
+    <h2 class="text-xl font-extrabold dark:text-white">参加者一覧</h2>
+    <ul class="grid grid-cols-4 gap-4">
+        <%= for user <- @user_list do %>
+        <li><.link href={~p"/user/#{user}"}><%= user %></.link></li>
+        <% end %>
+    </ul>
+</div>
+<h2 class="text-xl font-extrabold dark:text-white">メッセージ</h2>
+<div class="flex flex-col space-y-2 p-4">
+    <%= for message <- @messages do %>
+    <div class={"flex items-center " <> if message["user_id"] == @current_user_id, do: "justify-end", else: "justify-start"}>
+        <div class={"relative w-2/3 px-6 py-3 rounded-lg shadow " <>
+                        if message["user_id"] == @current_user_id,
+                            do: "bg-blue-500 text-white self-end text-xl",
+                            else: "bg-gray-200 text-black self-start text-xl"}>
+            <div class="absolute top-0 left-0 text-xs text-gray-600 px-2 py-1"><%= message["user_id"] %></div>
+            <div class="mt-2"><%= message["content"] %></div>
+        </div>
+    </div>
+    <% end %>
+</div>

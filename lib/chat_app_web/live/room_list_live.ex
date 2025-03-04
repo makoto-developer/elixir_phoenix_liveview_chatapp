@@ -1,4 +1,4 @@
-defmodule ChatAppWeb.RoomLive do
+defmodule ChatAppWeb.RoomListLive do
   use ChatAppWeb, :live_view
 
   alias ChatApp.Chat
